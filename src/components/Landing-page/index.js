@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../style.css'
 
 function Landing(props) {
+    
+    const [price, setPrice] = useState(null);
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        fetch("https://blockchain.info/ticker")
+        .then((res) => res.json())
+        .then((data) => {        
+            setPrice(data.USD.last);
+            setLoading(false);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    }, []);
+
     return (
         <>
             <div className="first-top">
@@ -11,7 +26,7 @@ function Landing(props) {
                 </div>
                 <div className="first-box">
                     <text>$SAT Price</text>
-                    <text>$ 000009467</text>
+                    <text>{loading ? "LOADING" : "$" + price}</text>
                 </div>
             </div>
             <div className="first-top">
