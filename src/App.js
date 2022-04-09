@@ -67,7 +67,7 @@ function App() {
         <button className={layout_state === states.Landing ? 'Menu-button2' : layout_state === states.Claim ? 'Menu-button2' : 'Menu-button21'} onClick={() => claimClick()}>Claim</button>
       </div>
       {layout_state === states.Landing ? (
-        <Landing />
+        <Landing data={ data }/>
         ) : layout_state === states.Staking ? (
           <Staking />
         ) : (

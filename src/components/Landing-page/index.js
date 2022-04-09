@@ -7,7 +7,7 @@ function Landing(props) {
             <div className="first-top">
                 <div className="first-box">
                     <text>Your Balance</text>
-                    <text> $SATS</text>
+                    <text>{props.data.Balance} $SATS</text>
                 </div>
                 <div className="first-box">
                     <text>$SAT Price</text>
