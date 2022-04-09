@@ -11,11 +11,6 @@ function App() {
     Staking: 'staking',
     Claim: 'claim',
   };
-  
-  const [satdata, setsatdata] = useState({
-    address: "",
-    balance: null,
-  })
 
   const [data, setdata] = useState({
     address: "",
