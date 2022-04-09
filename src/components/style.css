@@ -1,0 +1,112 @@
+.first-top {
+    margin-left: 23%;
+    margin-right: 23%;
+    display: flex;
+    height: 20%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: calc(10px + 2vmin);
+}
+
+.first-box {
+    margin-top: 10%;
+    background-color: white;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 100px;
+    box-shadow: 2px 4px 15px #ffffff;
+}
+
+.staking-board {
+    background-color:rgb(226, 226, 225);
+    display: grid;
+    margin-left: 25%;
+    margin-top: 2%;
+    width: 50%;
+    height: 350px;
+    border-radius: 10px;
+}
+
+.staking-editbox {
+    margin-top: 4%;
+    color: black;
+    height: 20%;
+    font-size: 20px;
+}
+
+.staking-input {
+    background-color: rgb(180, 179, 179);
+    height: 40px;
+    outline: none;
+    width: 80%;
+    border-radius: 7px;
+    z-index: 10000;
+    position: relative;
+    outline: none;
+    border: none;
+}
+
+.staking-button1 {
+    height: 36px;
+    width: 60px;
+    background-color: rgb(141, 140, 140);
+    z-index: 0;
+    position: relative;
+    /* border: none; */
+
+}
+
+.staking-button2 {
+    margin-top: 1%;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(15,15,23,1) 34%, rgba(215,215,215,1) 100%);
+    width: 30%;
+    height: 40px;
+    color: rgb(196, 196, 196);
+    font-size: 30px;
+    border-radius: 10px;
+}
+
+.claim-board {
+    background-color:rgb(226, 226, 225);
+    display: grid;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 2%;
+    width: 30%;
+    height: 350px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.claim-div {
+    margin-top: 30px;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    display: grid;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    justify-content: center;
+    align-items: center;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(199,197,197,1) 40%, rgba(215,214,214,1) 50%, rgba(212,211,211,1) 59%, rgba(0,0,0,1) 100%);
+}
+
+.claim-btn {
+    background: rgb(134,134,134);
+    background: linear-gradient(0deg, rgba(134,134,134,1) 0%, rgba(42,42,42,1) 98%);
+    outline: none;
+    border: none;
+    width: 40%;
+    margin-left: 30%;
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.claim-text {
+    font-size: 20px;
+}
