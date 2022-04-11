@@ -29,7 +29,7 @@
 .button-header {
   display: flex;
   align-items: center;
-  background: url('../assets/btnplate.ico');
+  background: url('./assets/btnplate.ico');
   height: 70px;
   width: 130px;
   font-size: 16px;
