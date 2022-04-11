@@ -10,7 +10,7 @@ import { useModal } from './context/modal-context'
 
 function App() {
 
-  const { setModal } = useModal();
+  const { setModal, unSetModal } = useModal();
 
   const states = {
     landing: 'landing',
@@ -33,6 +33,7 @@ function App() {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
         .then((res) => accountChangeHandler(res[0]));
+        unSetModal();
     } else {
       alert("install metamask extension!!");
     }
@@ -68,7 +69,7 @@ function App() {
       .then((balance) => {
         setWalletData({
           balance: ethers.utils.formatEther(balance),
-          address: ethers.utils.formatEther(address),
+          address: address
         });
       });
   };
@@ -85,12 +86,12 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <button className="button-header" onClick={() => landingClick()}>SATOSHI Bank</button>
+        <button className="button-headerf" onClick={() => landingClick()}>SATOSHI Bank</button>
         <img src={logo} className="app-logo" alt="logo" />
-        <button className="button-header" onClick={() => {
+        <button className={walletData.address ? 'button-headers' : 'button-headerf'} onClick={() => {
           setModal(
             <>
-              <button className="connect-button" onClick={metamaskConnectButton}>Metamask</button>
+              <button className="connect-button" onClick={metamaskConnectButton} >Metamask</button>
               <button className="connect-button" >WalletConnect</button>
               <button className="connect-button" >Trust Wallet</button>
             </>

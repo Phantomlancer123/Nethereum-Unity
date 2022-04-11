@@ -22,7 +22,7 @@ function Landing(props) {
             <div className="landing-top">
                 <div className="landing-box">
                     <div>Your Balance</div>
-                    <div>{props.waletData.balance} $SATS</div>
+                    <div>{Math.round(props.waletData.balance*10000)/10000} $SATS</div>
                     {/* <div> $SATS</div> */}
 
                 </div>
