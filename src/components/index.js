@@ -1,5 +1,5 @@
-import Claim from './Claim-page'
-import Landing from './Landing-page'
-import Staking from './Staking-page'
+import Claim from './claimPage'
+import Landing from './landingPage'
+import Staking from './stakingPage'
 
 export { Claim, Landing, Staking };

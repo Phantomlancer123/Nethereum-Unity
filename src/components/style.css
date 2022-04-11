@@ -1,15 +1,21 @@
-.first-top {
-    margin-left: 23%;
-    margin-right: 23%;
+.landing-top {
     display: flex;
     height: 20%;
+    width: 100%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-size: calc(10px + 2vmin);
 }
 
-.first-box {
-    margin-top: 10%;
+.middle {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.landing-box {
+    font-size: 25px;
+    margin-top: 40px;
     background-color: white;
     display: grid;
     justify-content: center;
@@ -22,9 +28,8 @@
 .staking-board {
     background-color:rgb(226, 226, 225);
     display: grid;
-    margin-left: 25%;
-    margin-top: 2%;
-    width: 50%;
+    margin-top: 30px;
+    width: 500px;
     height: 350px;
     border-radius: 10px;
 }
@@ -46,43 +51,44 @@
     position: relative;
     outline: none;
     border: none;
+    margin-right: -65px;
+    z-index: 0;
 }
 
-.staking-button1 {
+.staking-buttonf {
     height: 36px;
     width: 60px;
     background-color: rgb(141, 140, 140);
     z-index: 0;
     position: relative;
+    z-index: 1;
     /* border: none; */
 
 }
 
-.staking-button2 {
+.staking-buttons {
     margin-top: 1%;
     background: rgb(2,0,36);
     background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(15,15,23,1) 34%, rgba(215,215,215,1) 100%);
     width: 30%;
     height: 40px;
     color: rgb(196, 196, 196);
-    font-size: 30px;
+    font-size: calc(10px + 2vmin);;
     border-radius: 10px;
 }
 
 .claim-board {
+    padding-top: 30px;
     background-color:rgb(226, 226, 225);
     display: grid;
-    margin-left: 35%;
-    margin-right: 35%;
     margin-top: 2%;
-    width: 30%;
+    width: 430px;
     height: 350px;
     border-radius: 10px;
     justify-content: center;
 }
 
 .claim-div {
-    margin-top: 30px;
     width: 200px;
     height: 60px;
     border-radius: 10px;
@@ -109,4 +115,48 @@
 
 .claim-text {
     font-size: 20px;
+}
+
+
+@media only screen and (max-width: 546px) {
+    .landing-top {
+        display: grid;
+        height: 20%;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: calc(10px + 2vmin);
+    }
+}
+
+@media only screen and (max-width: 527px) {
+    .middle {
+        width: 100%;
+        display: flex;
+    }
+    .staking-board {
+        background-color:rgb(226, 226, 225);
+        display: grid;
+        margin-top: 30px;
+        width: 90%;
+        height: 350px;
+        border-radius: 10px;
+    }
+}
+
+@media only screen and (max-width: 527px) {
+    .middle {
+        width: 100%;
+        display: flex;
+    }
+    .claim-board {
+        padding-top: 30px;
+        background-color:rgb(226, 226, 225);
+        display: grid;
+        margin-top: 2%;
+        width: 90%;
+        height: 350px;
+        border-radius: 10px;
+        justify-content: center;
+    }
 }

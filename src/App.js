@@ -1,23 +1,24 @@
 import logo from './assets/stashi-head.png';
-import './styles/App.css';
-import {Landing, Claim, Staking} from './components';
+import './styles/app.css';
+import { Landing, Claim, Staking } from './components';
 import { useState } from 'react';
 import { ethers } from "ethers";
+import { useModal } from './context/modal-context'
 
 function App() {
-
+  const { setModal } = useModal();
   const states = {
-    Landing: 'landing',
-    Staking: 'staking',
-    Claim: 'claim',
+    landing: 'landing',
+    staking: 'staking',
+    claim: 'claim',
   };
 
-  const [data, setdata] = useState({
+  const [walletData, setWalletData] = useState({
     address: "",
-    Balance: null,
+    balance: null,
   });
 
-  const btnhandler = () => {
+  const walletConnectButton = () => {
     if (window.ethereum) {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
@@ -27,63 +28,70 @@ function App() {
     }
   };
 
-  const getbalance = (address) => {
+  const getBalance = (address) => {
     window.ethereum
-      .request({ 
-        method: "eth_getBalance", 
-        params: [address, "latest"] 
+      .request({
+        method: "eth_getbalance",
+        params: [address, "latest"]
       })
       .then((balance) => {
-        setdata({
-          Balance: ethers.utils.formatEther(balance),
+        setWalletData({
+          balance: ethers.utils.formatEther(balance),
           address: ethers.utils.formatEther(address),
         });
       });
   };
-  
+
   const accountChangeHandler = (account) => {
-    setdata({
+    setWalletData({
       address: account,
     });
-    getbalance(account);
+    getBalance(account);
   };
 
-  const [layout_state, set_layout_state] = useState('landing');
+  const [layoutState, setLayoutState] = useState('landing');
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <button className="button-header" onClick={() => landingClick()}>SATOSHI Bank</button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <button className="button-header" onClick={btnhandler}>{data.address ? data.address : 'Connect' }</button>
+        <img src={logo} className="app-logo" alt="logo" />
+        <button className="button-header" onClick={() => {
+          setModal(
+            <>
+              <button className="connect-button" onClick={walletConnectButton}>Metamask</button>
+              <button className="connect-button" onClick={walletConnectButton}>WalletConnect</button>
+              <button className="connect-button" onClick={walletConnectButton}>Trust Wallet</button>
+            </>
+          )
+        }}>{walletData.address ? walletData.address : 'Connect'}</button>
+
       </header>
-      <div className="Menu-bar">
-        <button className={layout_state === states.Landing ? 'Menu-button1' : layout_state === states.Claim ? 'Menu-button11' : 'Menu-button1'} onClick={() => stakeClick()}>Stake</button>
-        <button className={layout_state === states.Landing ? 'Menu-button2' : layout_state === states.Claim ? 'Menu-button2' : 'Menu-button21'} onClick={() => claimClick()}>Claim</button>
+      <div className="menu-bar">
+        <button className={layoutState === states.landing ? 'menuButton' : layoutState === states.claim ? 'menuButton-Active' : 'menuButton'} onClick={() => stakeClick()}>Stake</button>
+        <button className={layoutState === states.landing ? 'menuButtonSecond' : layoutState === states.claim ? 'menuButtonSecond' : 'menuButtonSecond-Active'} onClick={() => claimClick()}>Claim</button>
       </div>
-      {layout_state === states.Landing ? (
-        <Landing data={ data }/>
-        ) : layout_state === states.Staking ? (
-          <Staking />
-        ) : (
-          <Claim />
-        )
+      {layoutState === states.landing ? (
+        <Landing waletData={walletData} />
+      ) : layoutState === states.staking ? (
+        <Staking />
+      ) : (
+        <Claim />
+      )
       }
-      
+
     </div>
   );
-  function landingClick(){
-    set_layout_state('landing');
-    console.log(data.address);
-    console.log(data.Balance);
+  function landingClick() {
+    setLayoutState('landing');
+    console.log(walletData);
   }
   function stakeClick() {
-    set_layout_state('staking');
+    setLayoutState('staking');
   }
   function claimClick() {
-      set_layout_state('claim');
+    setLayoutState('claim');
   }
-  
 }
 
 export default App;

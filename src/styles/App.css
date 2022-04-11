@@ -1,20 +1,20 @@
-.App {
+.app {
   text-align: center;
   background-color: black;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 20%;
+.app-logo {
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .app-logo {
+    animation: app-logo-spin infinite 20s linear;
   }
 }
 
-.App-header {
+.app-header {
   margin-top: 2%;
   margin-left: 2%;
   margin-right: 2%;
@@ -40,11 +40,11 @@
   font-family: cursive;
 }
 
-.App-link {
+.app-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes app-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -53,50 +53,177 @@
   }
 }
 
-.Menu-bar {
+.menu-bar {
   margin-top: 4%;
+  display: flex;
+  justify-content: center;
 }
 
-.Menu-button1 {
+.menuButton {
   background-color: white;
   border-radius: 15px;
-  width: 20%;
+  width: 200px;
   height: 40px;
   font-size: 20px;
   margin-right: -20px;
-  z-index: 10000;
+  z-index: 3;
   position: relative;
   border-bottom-right-radius: 0px;
   border-top-right-radius: 0px;
 }
 
-.Menu-button2 {
-  background-color: white;
+.connect-button {
+  background-color: rgb(136, 133, 133);
   border-radius: 15px;
-  width: 20%;
+  /* width: 200px; */
   height: 40px;
   font-size: 20px;
   z-index: 0;
   position: relative;
 }
 
-.Menu-button11 {
-  background-color: gray;
+.menuButtonSecond {
+  background-color: white;
   border-radius: 15px;
-  width: 20%;
+  width: 200px;
   height: 40px;
   font-size: 20px;
-  margin-right: -20px;
-  z-index: 10000;
+  z-index: 0;
   position: relative;
 }
 
-.Menu-button21 {
+.menuButton-Active {
   background-color: gray;
   border-radius: 15px;
-  width: 20%;
+  width: 200px;
   height: 40px;
   font-size: 20px;
-  z-index: 10000;
+  margin-right: -20px;
+  z-index: 3;
   position: relative;
+}
+
+.menuButtonSecond-Active {
+  background-color: gray;
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+  z-index: 3;
+  position: relative;
+}
+
+.modal {
+  --spacing: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 10;
+}
+
+.modal__close {
+  display: block;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__inner {
+  display: grid;
+  justify-content: center;
+  position: relative;
+  width: calc(var(--spacing) * 36);
+  max-width: 100%;
+  padding: calc(var(--spacing) * 3) calc(var(--spacing) * 1.5);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 20px 32px -8px;
+}
+
+.modal__close-btn {
+  position: absolute;
+  top: var(--spacing);
+  right: var(--spacing);
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__close-btn svg {
+  width: var(--spacing);
+  height: var(--spacing);
+  fill: currentColor;
+  opacity: 0.5;
+}
+
+.modal__close-btn:hover svg {
+  opacity: 1;
+}
+
+@media only screen and (max-width: 546px) {
+  .menuButton {
+    background-color: white;
+    border-radius: 15px;
+    width: 40%;
+    height: 40px;
+    font-size: 20px;
+    margin-right: -20px;
+    z-index: 3;
+    position: relative;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  
+  .connect-button {
+    background-color: rgb(136, 133, 133);
+    border-radius: 15px;
+    /* width: 40%; */
+    height: 40px;
+    font-size: 20px;
+    z-index: 0;
+    position: relative;
+  }
+  
+  .menuButtonSecond {
+    background-color: white;
+    border-radius: 15px;
+    width: 40%;
+    height: 40px;
+    font-size: 20px;
+    z-index: 0;
+    position: relative;
+  }
+  
+  .menuButton-Active {
+    background-color: gray;
+    border-radius: 15px;
+    width: 40%;
+    height: 40px;
+    font-size: 20px;
+    margin-right: -20px;
+    z-index: 3;
+    position: relative;
+  }
+  
+  .menuButtonSecond-Active {
+    background-color: gray;
+    border-radius: 15px;
+    width: 40%;
+    height: 40px;
+    font-size: 20px;
+    z-index: 3;
+    position: relative;
+  }
 }
