@@ -1,5 +1,5 @@
 import logo from './assets/stashi-head.png';
-import './styles/app.css';
+// import './styles/app.css';
 import { Landing, Claim, Staking } from './components';
 import { useState } from 'react';
 import { ethers } from "ethers";
