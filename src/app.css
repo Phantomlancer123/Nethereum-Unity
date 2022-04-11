@@ -28,6 +28,7 @@
 
 .button-header {
   display: flex;
+  overflow: hidden;
   align-items: center;
   background: url('./assets/btnplate.ico');
   height: 70px;

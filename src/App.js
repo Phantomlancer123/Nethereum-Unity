@@ -62,7 +62,7 @@ function App() {
   const getBalance = (address) => {
     window.ethereum
       .request({
-        method: "eth_getbalance",
+        method: "eth_getBalance",
         params: [address, "latest"]
       })
       .then((balance) => {
