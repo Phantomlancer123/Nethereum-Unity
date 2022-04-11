@@ -4,21 +4,31 @@ import { Landing, Claim, Staking } from './components';
 import { useState } from 'react';
 import { ethers } from "ethers";
 import { useModal } from './context/modal-context'
+// import WalletConnect from "@walletconnect/client";
+// import QRCodeModal from "@walletconnect/qrcode-modal";
+
 
 function App() {
+
   const { setModal } = useModal();
+
   const states = {
     landing: 'landing',
     staking: 'staking',
     claim: 'claim',
   };
 
+  // const walletConnector = new WalletConnect({
+  //   bridge: "https://bridge.walletconnect.org",
+  //   qrcodeModal: QRCodeModal,
+  // });
+
   const [walletData, setWalletData] = useState({
     address: "",
     balance: null,
   });
 
-  const walletConnectButton = () => {
+  const metamaskConnectButton = () => {
     if (window.ethereum) {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
@@ -27,6 +37,27 @@ function App() {
       alert("install metamask extension!!");
     }
   };
+
+  // const walletConnectButton = () => {
+
+  //   if (!walletConnector.connected) {
+  //     walletConnector.createSession();
+  //   }
+
+    // walletConnector.on("connect", (error, payload) => {
+    //   if (error) {
+    //     throw error;
+    //   }
+    //   const { accounts, chainId } = payload.params[0];
+    // });
+    
+    // walletConnector.on("session_update", (error, payload) => {
+    //   if (error) {
+    //     throw error;
+    //   }
+    //   const { accounts, chainId } = payload.params[0];
+    // });
+  // };
 
   const getBalance = (address) => {
     window.ethereum
@@ -59,7 +90,7 @@ function App() {
         <button className="button-header" onClick={() => {
           setModal(
             <>
-              <button className="connect-button" onClick={walletConnectButton}>Metamask</button>
+              <button className="connect-button" onClick={metamaskConnectButton}>Metamask</button>
               <button className="connect-button" >WalletConnect</button>
               <button className="connect-button" >Trust Wallet</button>
             </>

@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
+    "@walletconnect/client": "^1.7.7",
+    "@walletconnect/qrcode-modal": "^1.7.7",
     "@web3-react/core": "^6.1.9",
     "@web3-react/walletlink-connector": "^6.2.13",
     "assert": "^2.0.0",

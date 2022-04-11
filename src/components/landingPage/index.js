@@ -37,7 +37,7 @@ function Landing(props) {
                     <div>$ 7986838</div>
                 </div>
                 <div className="landing-box">
-                    <div>Based Tokens</div>
+                    <div>Burned Tokens</div>
                     <div>8986 $SATS</div>
                 </div>
             </div>
