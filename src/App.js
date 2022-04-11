@@ -60,8 +60,8 @@ function App() {
           setModal(
             <>
               <button className="connect-button" onClick={walletConnectButton}>Metamask</button>
-              <button className="connect-button" onClick={walletConnectButton}>WalletConnect</button>
-              <button className="connect-button" onClick={walletConnectButton}>Trust Wallet</button>
+              <button className="connect-button" >WalletConnect</button>
+              <button className="connect-button" >Trust Wallet</button>
             </>
           )
         }}>{walletData.address ? walletData.address : 'Connect'}</button>
