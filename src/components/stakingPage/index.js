@@ -6,7 +6,7 @@ function Staking() {
         <div className="middle">
             <div className="staking-board">
                 <div className="staking-editbox">
-                    <div>ssdf</div>
+                    <div>$Sats</div>
                     <div>
                         <input className="staking-input" />
                         <button className="staking-buttonf">Max</button>
@@ -14,7 +14,7 @@ function Staking() {
                     <button className="staking-buttons">Stake</button>
                 </div>
                 <div className="staking-editbox">
-                    <div>ssdf</div>
+                    <div>$Sats</div>
                     <div>
                         <input className="staking-input" />
                         <button className="staking-buttonf">Max</button>
