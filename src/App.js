@@ -3,25 +3,26 @@ import './app.css';
 import { Landing, Claim, Staking } from './components';
 import { useState } from 'react';
 import { ethers } from "ethers";
-import { useModal } from './context/modal-context'
-// import WalletConnect from "@walletconnect/client";
-// import QRCodeModal from "@walletconnect/qrcode-modal";
-
+import { useModal } from './context/modal-context';
+import { useWeb3React } from '@web3-react/core';
+import { connectorNames, connectorTypes } from './constants';
 
 function App() {
 
   const { setModal, unSetModal } = useModal();
+
+  const context = useWeb3React();
+
+  const {
+    activate,
+    connector,
+  } = context;
 
   const states = {
     landing: 'landing',
     staking: 'staking',
     claim: 'claim',
   };
-
-  // const walletConnector = new WalletConnect({
-  //   bridge: "https://bridge.walletconnect.org",
-  //   qrcodeModal: QRCodeModal,
-  // });
 
   const [walletData, setWalletData] = useState({
     address: "",
@@ -33,32 +34,11 @@ function App() {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
         .then((res) => accountChangeHandler(res[0]));
-        unSetModal();
+      unSetModal();
     } else {
       alert("install metamask extension!!");
     }
   };
-
-  // const walletConnectButton = () => {
-
-  //   if (!walletConnector.connected) {
-  //     walletConnector.createSession();
-  //   }
-
-    // walletConnector.on("connect", (error, payload) => {
-    //   if (error) {
-    //     throw error;
-    //   }
-    //   const { accounts, chainId } = payload.params[0];
-    // });
-    
-    // walletConnector.on("session_update", (error, payload) => {
-    //   if (error) {
-    //     throw error;
-    //   }
-    //   const { accounts, chainId } = payload.params[0];
-    // });
-  // };
 
   const getBalance = (address) => {
     window.ethereum
@@ -84,16 +64,36 @@ function App() {
   const [layoutState, setLayoutState] = useState('landing');
 
   return (
+
     <div className="app">
       <header className="app-header">
-        <button className="button-headerf" onClick={() => landingClick()}>SATOSHI Bank</button>
+        <button className="button-headerf" onClick={() => landingClick()}>GO TO BANK</button>
         <img src={logo} className="app-logo" alt="logo" />
         <button className={walletData.address ? 'button-headers' : 'button-headerf'} onClick={() => {
           setModal(
             <>
-              <button className="connect-button" onClick={metamaskConnectButton} >Metamask</button>
+              {/* <button className="connect-button" onClick={metamaskConnectButton} >Metamask</button>
               <button className="connect-button" >WalletConnect</button>
-              <button className="connect-button" >Trust Wallet</button>
+              <button className="connect-button" >Trust Wallet</button> */}
+              <button className="connect-button" onClick={metamaskConnectButton} >Metamask</button>
+              {Object.keys(connectorTypes).map(con => {
+                const current = connectorTypes[con];
+                const disabled = current === connector;
+                const name = connectorNames[con];
+
+                return (
+                  <div
+                    key={con}
+                    onClick={() => {
+                      activate(connectorTypes[con]);
+                      unSetModal();
+                    }}
+                    disabled={disabled}
+                  >
+                    <button className="connect-button">{name}</button>
+                  </div>
+                );
+              })}
             </>
           )
         }}>{walletData.address ? walletData.address : 'Connect'}</button>
@@ -111,7 +111,6 @@ function App() {
         <Claim />
       )
       }
-
     </div>
   );
   function landingClick() {
