@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Unity-ThirdPersonController
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Third Person Controller for Unity. </br>
+I don't use physics and <a href="http://docs.unity3d.com/ScriptReference/Rigidbody.html">Rigidbody</a> to control the character. Instead I use a <a href="http://docs.unity3d.com/Manual/class-CharacterController.html">CharacterController</a> component and custom gravity.
 
-## Available Scripts
+![gif](https://66.media.tumblr.com/4ebc3043e562cf533abfa0334767fcf6/tumblr_nuq9m2ccV21uf0epoo1_400.gif)
+![gif](https://67.media.tumblr.com/2a03084df33025081e073684311c2553/tumblr_nuqahdQ8Sj1uf0epoo1_400.gif)
+![gif](https://66.media.tumblr.com/8fdfbde5eb4ea89af6bd5348f4853814/tumblr_nuqaihte8p1uf0epoo1_400.gif)
+![gif](https://67.media.tumblr.com/096295113f6b645b60d66af325e00d17/tumblr_nuqajqGkTh1uf0epoo1_400.gif)
+![gif](https://67.media.tumblr.com/6bebcd8ec379de46b81335d4e7b74643/tumblr_nuqakhO5gt1uf0epoo1_400.gif)
 
-In the project directory, you can run:
+## System Requirements
 
-### `npm start`
+Unity 5.0 or later versions.<br />
+I actually created the controller with Unity 5.0 and haven't tried to run it with an older version. If you are using an older version of Unity, feel free to try it out. I don't think there are any reasons for it not to run in Unity 4.6.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Used Assets
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The character and the animations are taken from <a href="https://www.mixamo.com/">Mixamo</a>. Just check it out. All of the characters are free to use. There are also many free animations, and the first 20 animations you buy are free of charge.
 
-### `npm test`
+## Controls
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Keyboard And Mouse**
+- Movement: **WASD**
+- Camera: **Mouse**
+- Jump: **Space**
+- Toggle Walk/Run: **Caps Lock**
+- Sprint: **Left Shift**
+- Toggle Slow Motion: **Tab**
 
-### `npm run build`
+**XBOX 360/ONE Controller**
+- Movement: **Left Stick**
+- Camera: **Right Stick**
+- Jump: **A**
+- Sprint: **LB**
+- Toggle Slow Motion: **RB**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The MIT License (MIT)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Copyright (c) 2015 Denis Rizov
 
-### `npm run eject`
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
